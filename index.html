@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Start Screen  python -m http.server -->
+    <div id="StartScreen" class="screen ">
+        <button id="StartButton" class="active">
+        Start V1.4.1-beta
+        </button>
+    </div>
+
+<!-- Main Game Screen -->
+    <div id="GameScreen" class="screen">
+        <div class="game-layout">
+
+<!-- Kopfzeile -->
+            <header class="top-bar">
+                <h1 id="StartText">The game is starting</h1>
+                <p id="Cash">Cash not Updated</p>
+                <p id="People">People not Updated</p>
+            </header>
+
+<!-- Main Layout Links -->
+            <main class="main-layout">
+                <section class="left-side">
+
+<!-- Roster Panel -->
+                    <section class="panel roster-panel visible">
+                        <h2>Roster</h2>
+                        <div class="roster-grid">
+                            <div id="roster1"class="roster-slot visible"></div>
+                            <div id="roster2"class="roster-slot"></div>
+                            <div id="roster3"class="roster-slot"></div>
+                            <div id="roster4"class="roster-slot"></div>
+                            <div id="roster5"class="roster-slot"></div>
+                        </div>
+                    </section>
+
+<!-- Details Panel -->
+                    <section class="panel details-panel">
+                    <h2>Selected Card</h2>
+                    <div class="details-box"></div>
+                    </section>
+                    
+<!-- Debug Panel-->
+                    <section class="panel debug-panel visible">
+                        <h2>DEBUG AREA</h2>
+                        <button id="debug1">Debug B1</button>
+                    </section>
+
+                </section>
+
+<!-- Main Layout Rechts -->
+                <section class="right-side">
+
+<!-- Store -->
+                    <section class="panel packs-panel visible">
+                        <h2>Packs</h2>
+                        <div id="shop" class="pack-area">
+
+                        </div>
+                    </section>
+
+<!-- Income Details -->
+                    <section class="panel income-panel">
+                        <h2>Income</h2>
+                    </section>
+
+<!-- Burn Panel -->
+                    <section class="panel burn-panel">
+                        <h2>Burn Area</h2>
+                        <div class="burn-box"></div>
+                    </section>
+                </section>
+            </main>
+        </div>
+        <div id="OverlayRoot" class="overlay">
+            <section id="PackOverlay" class="overlay-panel">
+                <h2 class="reward">Reward...</h2>
+                <img id="RewardImage" class="reward-image" src="">
+                <div id="CardDisplay">
+                    <h3 class="country">Country</h3>
+                    <p  class="sex">sex</p>
+                    <p  class="income">income</p>
+                    <p  class="lifeExpectancy">lifeExpectancy</p>
+                    <p  class="age">Current Age</p>
+                    <p  class="ethnicity">ethnicity</p>
+                    <p  class="religion">religion</p>
+                    <p  class="languages">langugaes</p>
+                    <p  class="location">location</p>
+                    <p  class="iq">IQ</p>
+                 </div>
+                <p class="counter"></p>
+            </section>
+            <section id="PauseOverlay" class="overlay-panel">
+                <h2>Paused</h2>
+                <p>The game is Pause rn</p>
+                <div class="pause-buttons">
+                    <button class="continue-btn">Continue</button>
+                    <button class="settings-btn">Settings</button>
+                    <button class="quit-btn">Quit to Menu</button>
+                    <button class="buffer-btn">just a buffer btn</button>
+                </div>
+            </section>
+        </div>
+    </div>
+<script src="JS/Cards.js"></script>
+<script src="JS/dataPacks.js"></script>
+<script src="JS/dataHumans.js"></script>
+<script src="JS/state.js"></script>
+<script src="JS/ui.js"></script>
+<script src="JS/dis.js"></script>
+<script src="JS/pack.js"></script>
+<script src="JS/DEBUG.js"></script>
+<script src="JS/main.js"></script>
+</body>
+</html>

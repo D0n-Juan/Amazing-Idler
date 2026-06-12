@@ -1,0 +1,378 @@
+.screen{
+    display: none;
+}
+
+.screen.active{
+    display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.left-side,
+.right-side,
+.main-layout,
+.game-layout {
+  min-width: 0;
+}
+
+html,body{
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    background:radial-gradient(circle at top, #fdf6ea 0%, #f3ead9 40%, #e7dbc7 100%);
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+
+button.visible{
+    font: inherit;
+    background-color: rgb(255, 74, 74);
+    transition: transform 0.1s ease;
+}
+
+button:hover{
+    transform: translateY(-2px) scale(105%);
+}
+
+button:active{
+    transform: translateY(0px) scale(95%)
+}
+
+#StartScreen{
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#StartScreen.active{
+    display: flex;
+}
+
+#StartButton{
+    display:none
+}
+
+#StartButton.active{
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: rgb(174, 255, 54);
+    border-radius: 10px;
+    border-color: black;
+    z-index: 1000;
+}
+
+.game-layout{
+    padding: 16px;
+    display: grid;
+    gap: 16px;
+}
+
+.top-bar{
+    border: 2px solid #222;
+    background: white;
+    padding: 16px;
+}
+
+.top-bar h1{
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+.main-layout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+}
+
+.left-side,
+.right-side{
+    display: grid;
+    gap: 16px;
+}
+
+.panel{
+    display: none;
+}
+
+.panel.visible{
+    display: block;
+    border: 2px solid #222;
+    background: white;
+    padding: 16px;
+}
+
+.panel.visible h2{
+    margin-top: 0px;
+    font-size: 1rem;
+}
+
+.packs-panel.visible{
+    display: grid;
+    gap: 12px;
+}
+
+.pack-area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.roster-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.roster-slot{
+    display: none;
+}
+
+.roster-slot.visible{
+    display: block;
+    min-height: 140px;
+    border: 2px dotted #999;
+    background: #fafafa;
+}
+
+.roster-slot.visible.filled{
+    background-color: limegreen;
+}
+
+.details-box,
+.burn-box{
+    border: 2px dotted #999;
+    background: #fafafa;
+}
+
+.details-box{
+    min-height: 340px;
+}
+
+.pack{
+    display: none;
+}
+
+.pack.visible{
+    width: 100%;
+    min-height: 250px;
+    min-height: 250px;
+    border: 2px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    border-radius: 16px;
+    color: #222;
+    white-space: pre-line;
+}
+
+
+.pack.common{
+    background: linear-gradient(180deg, #ffffff, #f0f0f0);
+    box-shadow: 0 8px 8cm rgba(0, 0, 0, 0.3);
+}
+
+.pack.uncommon{
+    background: linear-gradient(180deg, #e8fff0, #c8f7d8);
+    box-shadow: 0 10px 13px rgba(0,200,80,0.35);
+    border-color: rgba(0,160,60,0.5);
+}
+
+.pack.rare{
+    background: linear-gradient(180deg, #e8f2ff, #cddfff);
+    box-shadow: 0 10px 20px rgba(0,120,255,0.4);
+    border-color: rgba(0,120,255,0.5);
+}
+
+.pack.epic{
+    background: linear-gradient(180deg, #f4e8ff, #dcc8ff);
+    box-shadow: 0 12px 29px rgba(160,0,255,0.45);
+    border-color: rgba(160,0,255,0.5);
+}
+
+.pack.legendary{
+    background: linear-gradient(180deg, #fff6d6, #ffe08a);
+    box-shadow: 0 14px 40px rgba(255,170,0,0.5);
+    border-color: rgba(255,170,0,0.6);
+}
+
+#PackOverlay .counter {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.9);
+    font-weight: 750;
+}
+/* wierd with the transparrency... fix later*/
+.pack.FlashRed {
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow:
+    inset 0 0 0 3px rgba(255, 0, 0, 0.5),
+    0 10px 25px rgba(0,0,0,0.2); /* keep outer shadow */
+    background-image:
+    linear-gradient(rgba(255,0,0,0.15), rgba(255,0,0,0.15));
+
+}
+
+#CardDisplay{
+    display: none;
+    margin-top: 18px;
+    padding: 16px;
+    border: 2px solid #222;
+    border-radius: 18px;
+    background: #fafafa;
+    text-align: left;
+}
+
+#CardDisplay.active{
+    display: block;
+}
+
+#CardDisplay h3{
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+#CardDisplay p{
+    margin: 6px 0;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.overlay.active{
+    display:flex;
+}
+
+
+.overlay-panel {
+  display: none;
+}
+.overlay-panel.active{
+    display:flex
+}
+
+#PackOverlay.active{
+    width: min(90vw, 420px);
+    height: min(90vw, 720px);
+    padding: 28px;
+    border: 2px solid #222;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.burn-box{
+    min-height: 80px;
+}
+
+#PauseOverlay{
+    display:none
+}
+
+#PauseOverlay.active{
+    width: min(90vw, 360px);
+    padding: 28px;
+    border: 2px solid #222;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#PauseOverlay h2{
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+#PauseOverlay p{
+    margin: 8px 0 24px;
+    color: #666;
+    font-size: 0.95rem;
+    margin: 8px 0 24px;
+}
+
+.pause-buttons{
+    display: grid;
+    gap: 12px;
+}
+
+#PauseOverlay button{
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #222;
+    border-radius: 14px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #222;
+}
+
+#PauseOverlay button:hover{
+    transform: translateY(-2px);
+}
+
+#PauseOverlay button:active{
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #222;
+}
+
+#PauseOverlay .continue-btn{
+    background: rgb(174, 255, 54);
+}
+
+#PauseOverlay .settings-btn{
+    background: #f4f4f4;
+}
+
+#PauseOverlay .quit-btn{
+    background: rgb(255, 95, 95);
+}
+
+#PauseOverlay .buffer-btn{
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.reward-image{
+    display: block;
+    width: min(260px, 72vw);
+    max-height: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 16px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px){
+    .main-layout{
+        grid-template-columns: 1fr;
+    }
+
+    .roster-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
